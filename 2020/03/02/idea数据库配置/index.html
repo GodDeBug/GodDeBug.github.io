@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>idea数据库配置 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##关于第一次配置数据库    需要先去载入jdbc程序驱动，及mysql的jar包详见：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Com_ma&#x2F;article&#x2F;details&#x2F;80505179（mysql的jar包不同于mysql需要另外下载）    配置文件导入成功后，在project data sources中选择mysql    在左侧的driver filer中导入刚刚下载的mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="idea数据库配置">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##关于第一次配置数据库    需要先去载入jdbc程序驱动，及mysql的jar包详见：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Com_ma&#x2F;article&#x2F;details&#x2F;80505179（mysql的jar包不同于mysql需要另外下载）    配置文件导入成功后，在project data sources中选择mysql    在左侧的driver filer中导入刚刚下载的mysql">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-02T08:31:28.000Z">
+<meta property="article:modified_time" content="2020-03-02T08:49:33.908Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-idea数据库配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time datetime="2020-03-02T08:31:28.000Z" itemprop="datePublished">2020-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      idea数据库配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##关于第一次配置数据库<br>    需要先去载入jdbc程序驱动，及mysql的jar包详见：<a href="https://blog.csdn.net/Com_ma/article/details/80505179（mysql的jar包不同于mysql需要另外下载）" target="_blank" rel="noopener">https://blog.csdn.net/Com_ma/article/details/80505179（mysql的jar包不同于mysql需要另外下载）</a><br>    配置文件导入成功后，在project data sources中选择mysql<br>    在左侧的driver filer中导入刚刚下载的mysql程序驱动完成<br>    再在database中创建数据库（其中所要用的database必须存在，否则失败）<br>##mysql常用jar包<br>连接Mysql数据库：</p>
+<p>　　常用的连接池有两种</p>
+<p>DBCP连接池<br>C3P0连接池</p>
+<p>Apache的commons组件 – DBCP连接池:</p>
+<p>commons-dbutils-1.4.jar　　封装并简化了JDBC</p>
+<p>commons-dbcp-1.4.jar　　   提供的数据库连接池组件,命名为DBCP</p>
+<p>commons-pool-1.3.jar　　　DBCP连接池依赖该jar包</p>
+<p>mysql-connctor-java-5.1.28-bin.jar　　Mysql的JDBC驱动包，用JDBC连接数据库必须使用该jar包</p>
+<p>C3P0连接池:<br>c3p0-0.9.1.2.jar　　　　　   使用c3p0连接池所使用的jar包</p>
+<p>##Intellij IDEA载入JDBC驱动，连接Mysql<br>1、<a href="https://blog.csdn.net/qq_41342884/article/details/89149995?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task（图文版）" target="_blank" rel="noopener">https://blog.csdn.net/qq_41342884/article/details/89149995?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task（图文版）</a></p>
+<p>2、<br>第一步，你得去官网下载<a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/connector/j/</a></p>
+<p>第二步，解压压缩包，随便放哪都可以</p>
+<p>第三步，打开你的idea工程，按ctrl+alt+shift+s（此为打开Project Structure），Modules —&gt;&gt;选中<Module source>–&gt;&gt;点击右侧的＋号——&gt;选第一个jars of directories，找到你刚刚解压缩的位置，选中文件mysql-connector-java-5.1.42-bin.jar——&gt;点确定</p>
+<p>第四步，查看你的Extermal libraries<br>————————————————<br>##数据库创建失败（Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezon）<br>主要是mysql时区错误，需要在mysql下修改时区。<br>展示时区： show variables like’%time_zone’;   显示 SYSTEM 就是没有设置时区啦<br>修改时区：SET GLOBAL time_zone = ‘+8:00’;<br>SET time_zone = ‘+8:00’;<br>刷新：FLUSH PRIVILEGES;<br>修改时区操作链接：<a href="https://blog.csdn.net/liuqiker/article/details/102455077" target="_blank" rel="noopener">https://blog.csdn.net/liuqiker/article/details/102455077</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/" data-id="ck7a831d200008wvpez9lfftn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">毕设设计笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/">idea数据库配置</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/">毕设设计笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E5%86%97%E4%BD%99%E7%AC%94%E8%AE%B0/">毕设冗余笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E5%90%8E%E5%8F%B0%E7%AC%94%E8%AE%B0/">毕设后台笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/23/%E6%AF%95%E8%AE%BEjs%E7%AC%94%E8%AE%B0/">毕设js笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
