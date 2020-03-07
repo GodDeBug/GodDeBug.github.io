@@ -64,6 +64,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-idea开发技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" class="article-date">
+  <time datetime="2020-03-04T07:36:38.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">idea开发技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##登录<br>开发期间模板引擎页面修改后，要实时生效<br>1、禁用模板引擎的缓存（在yml里添加spring.thrmeleaf.cache=false）<br>2、页面修改完成以后ctrl+F9：重新编译<br>##主程序快速编写（psvm）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" data-id="ck7h4zuzo0000v4vp90v4868r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-idea数据库配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/" class="article-date">
@@ -100,6 +137,13 @@
 <p>第二步，解压压缩包，随便放哪都可以</p>
 <p>第三步，打开你的idea工程，按ctrl+alt+shift+s（此为打开Project Structure），Modules —&gt;&gt;选中<Module source>–&gt;&gt;点击右侧的＋号——&gt;选第一个jars of directories，找到你刚刚解压缩的位置，选中文件mysql-connector-java-5.1.42-bin.jar——&gt;点确定</p>
 <p>第四步，查看你的Extermal libraries<br>————————————————<br>##数据库创建失败（Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezon）<br>主要是mysql时区错误，需要在mysql下修改时区。<br>展示时区： show variables like’%time_zone’;   显示 SYSTEM 就是没有设置时区啦<br>修改时区：SET GLOBAL time_zone = ‘+8:00’;<br>SET time_zone = ‘+8:00’;<br>刷新：FLUSH PRIVILEGES;<br>修改时区操作链接：<a href="https://blog.csdn.net/liuqiker/article/details/102455077" target="_blank" rel="noopener">https://blog.csdn.net/liuqiker/article/details/102455077</a></p>
+<p>##项目开始时配置yml数据库连接驱动爆红<br>原因是因为没有在pom.xml里配置项目数据库路径即（mysql-connector-java）<br>因此在xml里加入 <!--MySQL数据库配置
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.41</version>
+            <scope>runtime</scope>
+        </dependency>--></p>
 
       
     </div>
@@ -175,6 +219,12 @@
       
         <p>##项目相关信息<br><a href="https://www.cnblogs.com/hellokuangshen/tag/SpringBoot/" target="_blank" rel="noopener">https://www.cnblogs.com/hellokuangshen/tag/SpringBoot/</a><br><a href="https://blog.kuangstudy.com/index.php/archives/630/" target="_blank" rel="noopener">https://blog.kuangstudy.com/index.php/archives/630/</a><br>##创建第一个spring项目<br>有两个方式：<br>###一个是通过官网下个架包<br>通过官方网站：<a href="https://spring.io/projects/spring-boot#overview。在里面找到Quick" target="_blank" rel="noopener">https://spring.io/projects/spring-boot#overview。在里面找到Quick</a> start，点开链接。<br>显示的界面就是创建spring的初始界面：<br><img src="/img/界面.jpg"><br>group(包名的前面与其相同)和artifact（与name命名相同）是mavean里的<br>Options里有选项，选项里有jar和war打包一般选择前者。<br>dependencies（依赖）一般写web，选择spring web依赖（）<br>最后点击generater生成（标准的mvean项目）<br>下载下来一个压缩包，再将其解压导入到idea中<br>###第二个方式，idea内部创建<br>new project里左侧有一个spring initializr有默认的网站，直接next，与之前网站设计一致。<br>建成后：包（.mvn）、文件（gitignore、help.md、mvnw、mvnw.cmd）没有用，可以删除。<br>src下的<br>main下的java/…xxxx.java为主函数（主入口）<br>    下的resources/…application.properties为springboot的配置文件<br>test下的java/…xxxx.java为单元测试<br>编写普通web子页面<br>1、在main下的java/…xxxx.java为主函数（主入口）的同一目录下新建一个controller包，包下面new一个c文件<br>2、c文件下生成一个class表头用@RestController<br>3、再生成一个string方法，return一个字符串。（方法前加一个@RequestMapping(“/hello”)）。这里的hello是子网页名（子网页路径）</p>
 <p>##关于解决无法创建包名和class文件方法<br><a href="https://blog.csdn.net/q283614346/article/details/97924462?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/q283614346/article/details/97924462?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a><br>##对于文件下只有directoey的原因：<br>因为maven库下载缓慢，导入依赖包安装未完成有关。<br>解决方法：<br>解决maven 在intellij IDEA 下载依赖包速度慢的问题<br><a href="https://blog.csdn.net/sinat_23170019/article/details/89222074" target="_blank" rel="noopener">https://blog.csdn.net/sinat_23170019/article/details/89222074</a></p>
+<p>##<br>SpringBoot项目大概分为四层：</p>
+<p>（1）DAO层：包括XxxMapper.java(数据库访问接口类)，XxxMapper.xml(数据库链接实现)；（这个命名，有人喜欢用Dao命名，有人喜欢用Mapper，看个人习惯了吧）</p>
+<p>（2）Bean层：也叫model层，模型层，entity层，实体层，就是数据库表的映射实体类，存放POJO对象；</p>
+<p>（3）Service层：也叫服务层，业务层，包括XxxService.java(业务接口类)，XxxServiceImpl.java（业务实现类）；（可以在service文件夹下新建impl文件放业务实现类，也可以把业务实现类单独放一个文件夹下，更清晰）</p>
+<p>（4）Web层：就是Controller层，实现与web前端的交互<br>————————————————</p>
+<p>##idea项目中添加mapper.xml文件<br><a href="https://blog.csdn.net/zhangxl123liang/article/details/809684003" target="_blank" rel="noopener">https://blog.csdn.net/zhangxl123liang/article/details/809684003</a></p>
 
       
     </div>
@@ -211,7 +261,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>##@RequestMapping(“/index”)；来自浏览器的index请求。<br>##打包之后的jar包，可以用cmd在dos命令下，打入java -jar jar包的名字运行即可</p>
+<p>##@SpringBootConfiguration：Spring Boot的配置类；标注在某个类上，表示这是一个Spring Boot的配置类</p>
+<p>##@ResponseBody 这个类的所有方法返回的数据直接写给浏览器（如果是对象转为json数据）</p>
+<p>##RestController = @Controller+@ResponseBody<br>##static 是保存多有静态资源（css，js，images）<br>remplates 保存所有模板引擎；（freemarker、thymeleaf）<br>##yml是以数据为中心，比json、xml更适合做配置文件<br>k：（空格）v：表示一对键值对；<br>以空格的缩进来控制层级关系；只要是左对齐的一列数据，都是同一个层级的<br>字符串默认不用加上单引号或者双引号<br>“”:不会转义字符串里的特殊字符；即 /n 转成 换行<br>“:会转义字符串里的特殊字符；即 /n 转成 /n<br>行内写法：friend： {lastname：zhangsan，age:18}<br>数组写法： [xxx ，xxx，xxx]</p>
+<p>##将配置文件中配置的每一个属性的值，映射到这个组件中<br>@configurationproperties：告诉springboot将本类中的所有属性和配置文件中相关的配置进行绑定；prefix = ”person“：配置文件中那个下面的所有属性进行–映射</p>
+<p>只有这个组件是容器（component）中的组件，才能容器提供的@configurationproperties功能<br>例子：@component<br>        @configurationproperties（prefix = ”person“）<br>在配置文件（yml）中填写person（类名）： 属性名：属性值<br>在配置文件生效前还要配置一个配置文件处理器，需要添加依赖</p>
+<p>##在person类中注入数据<br>@Value（”${属性名}”）<br>@Value（”#{11*2}（计算数字）”）<br>@Value（”true（判断）”）</p>
+<p>##@configurationproperties与@Value的比较<br>批量注入；单一注入</p>
+<p>##@propertySource加载指定的配置文件<br>@importResource 导入spring的配置文件，让配置文件里面的内容生效</p>
+<p>##@Configuration 指明当前类是一个配置类；就是来代替之前的spring配置文件<br>在配置文件中用<bean></bean>标签添加组件<br>例子：新建一个config包下新建config类，用@configuration先注解<br>然后用@Bean注解即（将方法的返回值添加到容器中，容器中有这个组件默认的id就是文件名）</p>
+<p>##配置文件占位符<br>随机数${random.xxx}；<br>占位符获取之前配置的值，如果没有可以是用：指定默认值</p>
+<p>##profile<br>1、spring对不同环境提供不同配置功能的支持，可以通过激活、指定参数等方式快速切换环境<br>2、用命令行：java -jar xxx.jar –spring.profiles.active=dev；</p>
+<p>默认使用默认主配置文件，<br>在配置文件中指定spring.profiles.active=另外的主配置文件名(properties)<br>yml主配置问及那就一个，在一个文件下将不同的端口号用”—-“分开；<br>用spring profiles定义名字；<br>spring profiles active：用来激活对应spring profiles定义名字</p>
+<p>##server.context-path=/xxxx；配置文件的访问路径</p>
+<p>##外部配置加载顺序</p>
+<p>##自动配置类，可以通过启用debug=true属性；来让控制台打印自动配置报告</p>
+<p>##日志使用（每个日志的实现框架都有自己的配置文件。使用slf4j以后，配置文件还是做成日志实现框架自己本身的配置文件）</p>
+<p>SLF4J<br>##如何让系统中所有的日志都统一到slf4j<br>1、将系统中其他日志框架先排除出去；<br>2、用中间包来替换原有的日志框架（适配器的类名和包名与替换的被日志框架一致）；<br>3、我们导入slf4j其他的实现<br>##SpringBoot能自动适配所有的日志，而且底层使用slf4j+logback的方式记录日志，引入其他框架的时候，只需要把这个框架依赖的日志框架排除掉即可；</p>
+<p>##在测试单元里生成日志文件<br>LoggerFactory.getLogger(getClass());（快捷code）<br>日志报错问题：<br><a href="https://www.cnblogs.com/chengshuai5421/p/12286829.html" target="_blank" rel="noopener">https://www.cnblogs.com/chengshuai5421/p/12286829.html</a></p>
+<p>##Webjars：以jar包的方式引入静态资源</p>
+<p>##thymelef：模板引擎<br>thymelef使用时，要在html文档开头要先导入标签<br>th：text ;改变当前元素里面的文本内容；<br>th：任意html属性；来替换原生属性的值</p>
+<p>##使用webmvcconfigureradapter可以来扩展springmvc的功能（ctrl+o）</p>
+<p>##@enablewebmvc会使得springmvc的自动配置都失效，只能手动配置。</p>
+<p>##server.context-path=/xxx  表示改变了项目的路径的一级目录。<br>th:href = “@{/xx/xx/xx}”后台路径，可以在项目修改过程中修改配置路径，不用修改原工程。<br>th:text=”#{xxxx}”  获取文本显示文字的信息，可在后台进行替换操作<br>th:action = “@{xxx/dengluye}”<br>th:if=”${}”判断语句<br>##页面抽取<br><a href="https://cloudlandboy.github.io/myNote/#/backend/springboot/restfulcrud?id=%e5%ae%9e%e7%8e%b0%e7%99%bb%e5%bd%95%e5%8a%9f%e8%83%bd" target="_blank" rel="noopener">https://cloudlandboy.github.io/myNote/#/backend/springboot/restfulcrud?id=%e5%ae%9e%e7%8e%b0%e7%99%bb%e5%bd%95%e5%8a%9f%e8%83%bd</a><br>th:fragment=”xxxx” 定位到相应的位置进行点击数据（标签）<br>th:insert=”~{zzz::xxxx}” zzz是xxx所在的页面，xxx是定位到的标签</p>
+<p>具体参考官方文档：<a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#including-template-fragments" target="_blank" rel="noopener">https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#including-template-fragments</a></p>
+<p>三种引入公共片段的th属性：</p>
+<p>th:insert：将公共片段整个插入到声明引入的元素中<br>th:replace：将声明引入的元素替换为公共片段<br>th:include：将被引入的片段的内容包含进这个标签中<br>/<em>公共片段</em>/</p>
+<!-- <footer th:fragment="copy">
+&copy; 2011 The Good Thymes Virtual Grocery
+</footer>
+
+/*引入方式*/
+<div th:insert="footer :: copy"></div>
+<div th:replace="footer :: copy"></div>
+<div th:include="footer :: copy"></div>
+
+
+/*效果*/
+<div>
+    <footer>
+    &copy; 2011 The Good Thymes Virtual Grocery
+    </footer>
+</div>
+
+<footer>
+&copy; 2011 The Good Thymes Virtual Grocery
+</footer>
+
+<div>
+&copy; 2011 The Good Thymes Virtual Grocery
+</div> -->
+
+<p>##区域信息解析器 点击切换语言</p>
+<p>##@postMapping（value=”/xxx”）=@requestmapping(value=”/xxx”,method = requestmethod.post)；相当于获取一个xxx的请求，然后跳转到相应界面即return xxx</p>
+
       
     </div>
     <footer class="article-footer">
@@ -288,8 +392,8 @@
 <p>自动完成允许浏览器预测对字段的输入。当用户在字段开始键入时，浏览器基于之前键入过的值，应该显示出在字段中填写的选项。</p>
 <p>注释：autocomplete 属性适用于 <form>，以及下面的 <input> 类型：text, search, url, telephone, email, password, datepickers, range 以及 color。</p>
 <p>提示：在某些浏览器中，您可能需要手动启用自动完成功能。</p>
-<p>##第二章</p>
-
+<p>##登陆错误消息的显示</p>
+<p style="color:red" th:text="${msg}" th:if="${not #string.isEmpty(msg)}"></p>
       
     </div>
     <footer class="article-footer">
@@ -383,6 +487,10 @@
       <ul>
         
           <li>
+            <a href="/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">idea开发技巧</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/">idea数据库配置</a>
           </li>
         
@@ -396,10 +504,6 @@
         
           <li>
             <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E5%90%8E%E5%8F%B0%E7%AC%94%E8%AE%B0/">毕设后台笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/23/%E6%AF%95%E8%AE%BEjs%E7%AC%94%E8%AE%B0/">毕设js笔记</a>
           </li>
         
       </ul>

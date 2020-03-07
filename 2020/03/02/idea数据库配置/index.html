@@ -15,7 +15,7 @@
 <meta property="og:description" content="##关于第一次配置数据库    需要先去载入jdbc程序驱动，及mysql的jar包详见：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Com_ma&#x2F;article&#x2F;details&#x2F;80505179（mysql的jar包不同于mysql需要另外下载）    配置文件导入成功后，在project data sources中选择mysql    在左侧的driver filer中导入刚刚下载的mysql">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-02T08:31:28.000Z">
-<meta property="article:modified_time" content="2020-03-02T08:49:33.908Z">
+<meta property="article:modified_time" content="2020-03-04T07:35:29.676Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -102,6 +102,13 @@
 <p>第二步，解压压缩包，随便放哪都可以</p>
 <p>第三步，打开你的idea工程，按ctrl+alt+shift+s（此为打开Project Structure），Modules —&gt;&gt;选中<Module source>–&gt;&gt;点击右侧的＋号——&gt;选第一个jars of directories，找到你刚刚解压缩的位置，选中文件mysql-connector-java-5.1.42-bin.jar——&gt;点确定</p>
 <p>第四步，查看你的Extermal libraries<br>————————————————<br>##数据库创建失败（Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezon）<br>主要是mysql时区错误，需要在mysql下修改时区。<br>展示时区： show variables like’%time_zone’;   显示 SYSTEM 就是没有设置时区啦<br>修改时区：SET GLOBAL time_zone = ‘+8:00’;<br>SET time_zone = ‘+8:00’;<br>刷新：FLUSH PRIVILEGES;<br>修改时区操作链接：<a href="https://blog.csdn.net/liuqiker/article/details/102455077" target="_blank" rel="noopener">https://blog.csdn.net/liuqiker/article/details/102455077</a></p>
+<p>##项目开始时配置yml数据库连接驱动爆红<br>原因是因为没有在pom.xml里配置项目数据库路径即（mysql-connector-java）<br>因此在xml里加入 <!--MySQL数据库配置
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.41</version>
+            <scope>runtime</scope>
+        </dependency>--></p>
 
       
     </div>
@@ -114,6 +121,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          idea开发技巧
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -155,6 +171,10 @@
       <ul>
         
           <li>
+            <a href="/2020/03/04/idea%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7/">idea开发技巧</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/02/idea%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/">idea数据库配置</a>
           </li>
         
@@ -168,10 +188,6 @@
         
           <li>
             <a href="/2020/02/23/%E6%AF%95%E8%AE%BE%E5%90%8E%E5%8F%B0%E7%AC%94%E8%AE%B0/">毕设后台笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/23/%E6%AF%95%E8%AE%BEjs%E7%AC%94%E8%AE%B0/">毕设js笔记</a>
           </li>
         
       </ul>
